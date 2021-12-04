@@ -7,6 +7,7 @@ public class Calculate {
 
     private static double result;
     private static String oldNumber;
+    private static String number = "";
     private static String operator;
 
     public static double getResult() {
@@ -14,7 +15,42 @@ public class Calculate {
     }
 
     public static void number(Button btnClicked, EditText input) {
-        String number = btnClicked.getText().toString();
+        String number = input.getText().toString();
+        switch(btnClicked.getId()) {
+            case R.id.oneBtn:
+                number += "1";
+                break;
+            case R.id.twoBtn:
+                number += "2";
+                break;
+            case R.id.threeBtn:
+                number += "3";
+                break;
+            case R.id.fourBtn:
+                number += "4";
+                break;
+            case R.id.fiveBtn:
+                number += "5";
+                break;
+            case R.id.sixBtn:
+                number += "6";
+                break;
+            case R.id.sevenBtn:
+                number += "7";
+                break;
+            case R.id.eightBtn:
+                number += "8";
+                break;
+            case R.id.nineBtn:
+                number += "9";
+                break;
+            case R.id.zeroBtn:
+                number += "0";
+                break;
+            case R.id.pointBtn:
+                number += ".";
+                break;
+        }
         input.setText(number);
     }
 
@@ -39,5 +75,13 @@ public class Calculate {
                 result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
                 break;
         }
+    }
+
+    public static void clear(EditText input) {
+        input.setText("");
+        oldNumber = "";
+        number = "";
+        operator = "";
+        result = 0;
     }
 }

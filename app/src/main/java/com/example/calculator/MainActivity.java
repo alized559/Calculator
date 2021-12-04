@@ -53,5 +53,14 @@ public class MainActivity extends AppCompatActivity {
             Calculate.equal(equal, input);
             result.setText(String.valueOf(Calculate.getResult()));
         });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calculate.clear(input);
+            }
+        });
+
+
     }
 }
