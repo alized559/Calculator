@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private EditText result, input;
-    private Button clear;
+    private Button clear, equal;
     private Button[] numberBtns, operatorBtns;
 
     @Override
@@ -21,12 +21,13 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
         input = findViewById(R.id.textInput);
         clear = findViewById(R.id.clearBtn);
+        equal = findViewById(R.id.equalBtn);
 
         numberBtns = new Button[] {
                 findViewById(R.id.oneBtn), findViewById(R.id.twoBtn), findViewById(R.id.threeBtn),
                 findViewById(R.id.fourBtn), findViewById(R.id.fiveBtn), findViewById(R.id.sixBtn),
                 findViewById(R.id.sevenBtn), findViewById(R.id.eightBtn), findViewById(R.id.nineBtn),
-                findViewById(R.id.pointBtn), findViewById(R.id.zeroBtn), findViewById(R.id.equalBtn)
+                findViewById(R.id.pointBtn), findViewById(R.id.zeroBtn)
         };
 
         operatorBtns = new Button[] {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             Button btn = numberBtns[i];
             btn.setOnClickListener(view -> {
                 Calculate.number(btn, input);
+
             });
         }
 
@@ -47,5 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 Calculate.operator(btn, input);
             });
         }
+
+        equal.setOnClickListener(view -> {
+            Calculate.equal(equal, input);
+        });
     }
 }
