@@ -40,5 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 Calculate.number(btn, input);
             });
         }
+
+        for (int i = 0; i < operatorBtns.length; i++) {
+            Button btn = operatorBtns[i];
+            btn.setOnClickListener(view -> {
+                Calculate.operator(btn, input);
+            });
+        }
     }
 }
