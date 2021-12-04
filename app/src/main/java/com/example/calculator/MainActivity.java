@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
             Button btn = numberBtns[i];
             btn.setOnClickListener(view -> {
                 Calculate.number(btn, input);
-
             });
         }
 
@@ -52,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         equal.setOnClickListener(view -> {
             Calculate.equal(equal, input);
+            result.setText(String.valueOf(Calculate.getResult()));
         });
     }
 }
