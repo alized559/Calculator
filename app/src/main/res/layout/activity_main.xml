@@ -41,6 +41,7 @@
                 android:id="@+id/textInput"
                 android:layout_width="750px"
                 android:layout_height="135px"
+                android:text=""
                 android:layout_marginLeft="70px"
                 android:background="@drawable/input_border"
                 android:editable="false"

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         equal.setOnClickListener(view -> {
-            Calculate.equal(equal, input);
+            Calculate.equal(input);
             result.setText(String.valueOf(Calculate.getResult()));
         });
 

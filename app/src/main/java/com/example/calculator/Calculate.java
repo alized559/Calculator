@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -7,9 +8,9 @@ public class Calculate {
 
     private static double result;
     private static boolean nextNumber;
-    private static String oldNumber;
+    private static String oldNumber = "";
     private static String number = "";
-    private static String operator;
+    private static String operator = "";
 
     public static double getResult() {
         return result;
@@ -19,7 +20,7 @@ public class Calculate {
         if (nextNumber)
             input.setText("");
         nextNumber = false;
-        String number = input.getText().toString();
+        number = input.getText().toString();
         switch(btnClicked.getId()) {
             case R.id.oneBtn:
                 number += "1";
@@ -77,8 +78,10 @@ public class Calculate {
         }
     }
 
-    public static void equal(Button equal, EditText input) {
+    public static void equal(EditText input) {
         String newNumber = input.getText().toString();
+        if (result != 0)
+            oldNumber = String.valueOf(result);
         switch(operator) {
             case "+":
                 result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
