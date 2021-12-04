@@ -6,6 +6,7 @@ import android.widget.EditText;
 public class Calculate {
 
     private static double result;
+    private static boolean nextNumber;
     private static String oldNumber;
     private static String number = "";
     private static String operator;
@@ -15,6 +16,9 @@ public class Calculate {
     }
 
     public static void number(Button btnClicked, EditText input) {
+        if (nextNumber)
+            input.setText("");
+        nextNumber = false;
         String number = input.getText().toString();
         switch(btnClicked.getId()) {
             case R.id.oneBtn:
@@ -55,6 +59,7 @@ public class Calculate {
     }
 
     public static void operator(Button btnClicked, EditText input) {
+        nextNumber = true;
         oldNumber = input.getText().toString();
         switch(btnClicked.getId()) {
             case R.id.plusBtn:
