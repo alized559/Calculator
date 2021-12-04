@@ -56,7 +56,20 @@ public class Calculate {
 
     public static void operator(Button btnClicked, EditText input) {
         oldNumber = input.getText().toString();
-        operator = btnClicked.getText().toString();
+        switch(btnClicked.getId()) {
+            case R.id.plusBtn:
+                operator = "+";
+                break;
+            case R.id.minusBtn:
+                operator = "-";
+                break;
+            case R.id.multipleBtn:
+                operator = "*";
+                break;
+            case R.id.divideBtn:
+                operator = "/";
+                break;
+        }
     }
 
     public static void equal(Button equal, EditText input) {
