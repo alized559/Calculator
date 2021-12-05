@@ -1,6 +1,5 @@
 package com.example.calculator;
 
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -119,20 +118,6 @@ public class Calculate {
             }
             result = String.valueOf(r1);
         }
-//        switch(operator) {
-//            case "+":
-//                result = Integer.parseInt(oldNumber) + Integer.parseInt(newNumber);
-//                break;
-//            case "-":
-//                result = Integer.parseInt(oldNumber) - Integer.parseInt(newNumber);
-//                break;
-//            case "*":
-//                result = Integer.parseInt(oldNumber) * Integer.parseInt(newNumber);
-//                break;
-//            case "/":
-//                result = Integer.parseInt(oldNumber) / Integer.parseInt(newNumber);
-//                break;
-//        }
     }
 
     public static void clear(EditText input) {

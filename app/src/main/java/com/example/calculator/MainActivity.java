@@ -9,21 +9,16 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int TIME = 1000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }, TIME);
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
+            startActivity(intent);
+            finish();
+        }, 1000);
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
