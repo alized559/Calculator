@@ -6,13 +6,13 @@ import android.widget.EditText;
 
 public class Calculate {
 
-    private static double result;
+    private static String result = "";
     private static boolean nextNumber;
     private static String oldNumber = "";
     private static String number = "";
     private static String operator = "";
 
-    public static double getResult() {
+    public static String getResult() {
         return result;
     }
 
@@ -80,22 +80,59 @@ public class Calculate {
 
     public static void equal(EditText input) {
         String newNumber = input.getText().toString();
-        if (result != 0)
-            oldNumber = String.valueOf(result);
-        switch(operator) {
-            case "+":
-                result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
-                break;
-            case "-":
-                result = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
-                break;
-            case "*":
-                result = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
-                break;
-            case "/":
-                result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
-                break;
+        double r = 0;
+        int r1 = 0;
+        if (!result.equals(""))
+            oldNumber = result;
+        if (oldNumber.contains(".") || newNumber.contains(".")) {
+            if (operator.equals("/")) {
+                r = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
+            }
+            if (operator.equals("*")) {
+                r = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
+            }
+            if (operator.equals("+")) {
+                r = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
+            }
+            if (operator.equals("-")) {
+                r = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
+            }
+            result = String.valueOf(r);
+        } else {
+            if (operator.equals("/")) {
+                if (Integer.parseInt(oldNumber) % Integer.parseInt(newNumber) == 0)
+                    r1 = Integer.parseInt(oldNumber) / Integer.parseInt(newNumber);
+                else {
+                    r = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
+                    result = String.valueOf(r);
+                    return;
+                }
+            }
+            if (operator.equals("*")) {
+                r1 = Integer.parseInt(oldNumber) * Integer.parseInt(newNumber);
+            }
+            if (operator.equals("+")) {
+                r1 = Integer.parseInt(oldNumber) + Integer.parseInt(newNumber);
+            }
+            if (operator.equals("-")) {
+                r1 = Integer.parseInt(oldNumber) - Integer.parseInt(newNumber);
+            }
+            result = String.valueOf(r1);
         }
+//        switch(operator) {
+//            case "+":
+//                result = Integer.parseInt(oldNumber) + Integer.parseInt(newNumber);
+//                break;
+//            case "-":
+//                result = Integer.parseInt(oldNumber) - Integer.parseInt(newNumber);
+//                break;
+//            case "*":
+//                result = Integer.parseInt(oldNumber) * Integer.parseInt(newNumber);
+//                break;
+//            case "/":
+//                result = Integer.parseInt(oldNumber) / Integer.parseInt(newNumber);
+//                break;
+//        }
     }
 
     public static void clear(EditText input) {
@@ -103,6 +140,6 @@ public class Calculate {
         oldNumber = "";
         number = "";
         operator = "";
-        result = 0;
+        result = "";
     }
 }
